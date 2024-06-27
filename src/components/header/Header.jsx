@@ -3,6 +3,8 @@ import React from 'react'
 import Image from 'next/image'
 import { twMerge } from 'tailwind-merge'
 import { merge } from '@/lib/utils'
+import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
+// import { UserButton } from '@clerk/nextjs'
 
 const Header = () => {
   return (
@@ -19,12 +21,32 @@ const Header = () => {
 
       {/* clerk auth */}
       <div>
-        <Link href="/auth/signin">
-          <span className={twMerge("text-slate-700 hover:text-slate-900")}>Sign in</span>
-        </Link>
-        <Link href="/auth/signup">
-          <span className={twMerge("text-slate-700 hover:text-slate-900")}>Sign up</span>
-        </Link>
+        <OrganizationSwitcher hidePersonal appearance={
+          {
+            elements:{
+              rootBox:{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              }
+            }
+          }
+        }/>
+        <UserButton
+          afterSignOutUrl='/'
+          appearance={{
+            elements: {
+              avatarBox: {
+                height: '40px', 
+                width: '40px',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+              },
+            }
+          }}
+        />
+        
       </div>
     </div>
   )
