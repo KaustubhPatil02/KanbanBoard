@@ -12,7 +12,7 @@ const Header = () => {
       <div className='hidden md:flex'>
         <Link href="/">
           <div className='hover:opacity-45 transition flex items-center gap-x-2 '>
-            <Image src="/logo.png" alt="logo" width={60} height={30} className='' />
+            {/* <Image src="/logo.png" alt="logo" width={60} height={30} className='' /> */}
             {/* <h2 className={merge("text-lg text-slate-700 pb-1 ")}>KanBAN</h2> */}
             <h2 className={merge("text-lg text-slate-700 pb-1 custom-font")}>KanBAN</h2>
           </div>
