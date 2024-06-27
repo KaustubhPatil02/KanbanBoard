@@ -8,36 +8,36 @@ import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
 
 const Header = () => {
   return (
-    <div className='fixed z-50'>
+    <div className='fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm bg-white flex items-center justify-center'>
       <div className='hidden md:flex'>
         <Link href="/">
           <div className='hover:opacity-45 transition flex items-center gap-x-2 '>
             {/* <Image src="/logo.png" alt="logo" width={60} height={30} className='' /> */}
             {/* <h2 className={merge("text-lg text-slate-700 pb-1 ")}>KanBAN</h2> */}
-            <h2 className={merge("text-lg text-slate-700 pb-1 custom-font")}>KanBAN</h2>
+            <h2 className={merge("text-lg text-slate-700 pb-1 custom-font")}>KanBAN BoArD</h2>
           </div>
         </Link>
       </div>
 
       {/* clerk auth */}
-      <div>
+      <div className='ml-auto flex  items-center gap-x-2'>
         <OrganizationSwitcher hidePersonal appearance={
           {
-            elements:{
-              rootBox:{
+            elements: {
+              rootBox: {
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
               }
             }
           }
-        }/>
+        } />
         <UserButton
           afterSignOutUrl='/'
           appearance={{
             elements: {
               avatarBox: {
-                height: '40px', 
+                height: '40px',
                 width: '40px',
                 display: 'flex',
                 justifyContent: 'center',
@@ -46,7 +46,7 @@ const Header = () => {
             }
           }}
         />
-        
+
       </div>
     </div>
   )
