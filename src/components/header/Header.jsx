@@ -8,7 +8,7 @@ import { OrganizationSwitcher, UserButton } from '@clerk/nextjs'
 
 const Header = () => {
   return (
-    <div>
+    <div className='fixed z-50'>
       <div className='hidden md:flex'>
         <Link href="/">
           <div className='hover:opacity-45 transition flex items-center gap-x-2 '>
