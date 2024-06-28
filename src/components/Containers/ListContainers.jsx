@@ -12,7 +12,7 @@ const ListContainers = () => {
                 direction='horizontal'
             >
                 {
-                    
+
                 }
 
             </Droppable>
