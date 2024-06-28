@@ -9,3 +9,27 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Lists {
+  // for automatic id creation
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  order         Int
+  cards        Cards[]
+  // datatypes for createdAt and updatedAt
+  createdAt     DateTime @default(now())  
+  // @map("created_at")
+  updatedAt     DateTime @updatedAt
+}
+
+model Cards{
+  id            String @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  order         Int
+  description   String?
+  listId        String
+  list          Lists @relation(fields: [listId], references: [id], onDelete: Cascade)
+  createdAt     DateTime @default(now())  
+  updatedAt     DateTime @updatedAt
+  @@index([listId])
+}
