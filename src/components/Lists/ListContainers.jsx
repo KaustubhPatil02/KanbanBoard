@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { DragDropContext, Droppable } from '@hello-pangea/dnd';
 import ListItems from './ListItems';
+import AddList from './AddList';
 
 const ListContainers = ({ lists }) => {
   const [listData, setListData] = useState(lists);
@@ -41,6 +42,7 @@ const ListContainers = ({ lists }) => {
               />
             ))}
             {provided.placeholder}
+            <AddList />
           </ol>
         )}
       </Droppable>

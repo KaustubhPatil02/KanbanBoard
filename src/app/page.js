@@ -1,4 +1,4 @@
-import ListContainers from "@/components/Containers/ListContainers";
+import ListContainers from "@/components/Lists/ListContainers";
 import prisma from "@/lib/Prisma-Client/db";
 // import Image from "next/image";
 
