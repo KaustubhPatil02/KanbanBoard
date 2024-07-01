@@ -7,21 +7,23 @@ const InputForm = ({ id, label, className, type, placeholder, errs }) => {
             <div>
                 {label ? (
                     <label className='text-sm  font-semibold text-white' htmlFor={id}>
-                        {label}</label> 
-                        ): null
+                        {label}</label>
+                ) : null
                 }
-                <input type={type} className={className} placeholder={placeholder}/>
+                <input type={type} className={className} placeholder={placeholder}
+                    name={id}
+                />
 
             </div>
             <div className='mt-2 text-xs text-red-700' id={`${id}-error`}>
-                {errs?.[id]?.map((errs)=>(
+                {errs?.[id]?.map((errs) => (
                     <div key={errs} className=''>
-                        <XCircle className='w-4 h-4 mr-2'/> 
+                        <XCircle className='w-4 h-4 mr-2' />
                         {errs}
                     </div>
                 ))}
             </div>
-        </div> 
+        </div>
     )
 }
 

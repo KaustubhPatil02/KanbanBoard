@@ -1,14 +1,16 @@
 "use client";
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Plus } from 'lucide-react';
+import { Plus, XCircle } from 'lucide-react';
 import InputForm from '../InputForm';
 
 const AddList = () => {
 
   const [editable, setEditable] = useState(false);
 
-  const clickSubmit = (e) => {
+  const clickSubmit = (data) => {
+    const title= data.get("title");
+    console.log(title,"Ek pyara bacha!");
 
   }
 
@@ -16,22 +18,34 @@ const AddList = () => {
     return (
       <div className='pl-10'>
         <li className='shrink-0 h-full w-[270px] select-none'>
-          <form
-            action={clickSubmit}
-            className='bg-white rounded-lg space-y-6 shadow-lg p-3'
-          >
-            <InputForm id="title"
-              className="text-sm px-2 py-1 h-7 border-transparent font-medium focus:outline-none hover:border-input focus:border-input transition"
-              placeholder="List Name"
-              errs={"errors"}
-            />
-            <button
-              type="submit"
-              variant='secondary'
-              size="sm"
-              className="w-full rounded-lg bg-black text-gray-200 p-2 hover:bg-gray-800 "
-              >Submit</button>
-          </form>
+        <form
+  action={clickSubmit}
+  className='bg-white rounded-lg space-y-6 shadow-lg p-3'
+>
+  <InputForm id="title"
+    className="text-sm px-2 py-1 h-7 border-transparent font-medium focus:outline-none hover:border-input focus:border-input transition"
+    placeholder="List Name"
+    errs={"errors"}
+  />
+  <div className="flex justify-between">
+    <button
+      type="submit"
+      variant='secondary'
+      size="sm"
+      className="rounded-lg bg-black text-gray-200 p-2 hover:bg-gray-800"
+    >
+      Add
+    </button>
+
+    <button
+      type="button" // Assuming this is for closing, so it's not a submit type
+      className="rounded-lg bg-red-600 text-black p-2"
+      onClick={() => setEditable(false)}
+    >
+      <XCircle/>
+    </button>
+  </div>
+</form>
         </li>
       </div>
 
